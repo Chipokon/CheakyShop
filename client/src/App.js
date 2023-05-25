@@ -1,8 +1,9 @@
+import DefaultLayout from "./Views/DefaultLayout/DefaultLayout";
 
 function App() {
   return (
     <div className="App">
-hello
+          <DefaultLayout />
     </div>
   );
 }
