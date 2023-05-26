@@ -52,7 +52,8 @@ const items =  [
   },
   {
     type: "label",
-    label: "UserNAMe"
+    label: "UserNAMe",
+    key: "profile"
 },
     {
         type: "label",
@@ -66,6 +67,7 @@ const App = () => {
 
   const onClick = (e) => {
     console.log('click ', e);
+    
     setCurrent(e.key);
   };
 
