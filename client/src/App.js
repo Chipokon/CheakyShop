@@ -1,13 +1,10 @@
-import NavBar from "../src/NavBar/NavBar"
-import Categories from "./Categories/Categories";
-import Chat from "./Chat/Chat";
+import DefaultLayout from "./Views/DefaultLayout/DefaultLayout";
+
 
 function App() {
   return (
     <div className="App" >
-    <NavBar/>
-    <Categories/>
-    <Chat/>
+      <DefaultLayout/>
     </div>
   );
 }
