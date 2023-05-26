@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
-import  { MenuProps } from 'antd';
+import  { Button, MenuProps } from 'antd';
 import { Menu } from 'antd';
 import {Card} from "antd";
-
+import { Link } from 'react-router-dom';
 const items =  [
   {
     label: 'Сообщения',
@@ -58,6 +58,15 @@ const items =  [
         type: "label",
         label: "Еще категории"
     },
+
+    {
+      type: 'signIn',
+      label: <Link to="/CheakyShop/signIt"><Button >Sign in</Button></Link>
+    },
+    {
+      type: 'signUp',
+      label: <Link to="/CheakyShop/signIt"><Button >Sign up</Button></Link>
+    }
    
 ];
 
