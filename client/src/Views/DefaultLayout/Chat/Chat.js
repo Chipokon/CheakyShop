@@ -1,3 +1,4 @@
+import { observer } from 'mobx-react-lite'
 import React from 'react'
 const chatStyles ={
     position: "fixed",
@@ -9,10 +10,10 @@ const chatStyles ={
     height: "770px",
     background: "#ccc"
 }
-const Chat = () => {
+const Chat = observer( () => {
   return (
     <div style={chatStyles}>Здесь должен быть гигачат</div>
   )
-}
+})
 
 export default Chat
