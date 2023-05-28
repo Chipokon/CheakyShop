@@ -1,11 +1,11 @@
 const path = require("path");
 const Sequelize = require("sequelize");
-
-const db = require(path.resolve(
-  path.dirname(require.main.filename),
-  "./src/dataDB.js"
-));
-const Cards = db.sequelize.define(
+// const db = require(path.resolve(
+//   path.dirname(require.main.filename),
+//   "./src/dataDB.js"
+// ));
+const sequelize = new Sequelize('sqlite::memory:');
+const Cards = sequelize.define(
   "cards",
   {
     id: {

@@ -7,10 +7,11 @@ config.config(server);
 //apis
 const usersApi = require('./apis/users/users')
 const { Sequelize } = require('sequelize');
+const categories = require("./apis/categories/categories.route")
 //подключение apis
 
 server.use('/api/cheakyshop/users', usersApi)
-
+server.use('/api/cheakyshop/categories', categories)
 const sequelize = new Sequelize(process.env.DB_NAME, process.env.USER_DATA_DB,  process.env.PASSWORD_DATA_DB, {
   host: 'localhost',
   dialect: 'mysql',

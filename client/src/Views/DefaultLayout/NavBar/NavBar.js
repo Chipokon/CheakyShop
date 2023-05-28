@@ -18,7 +18,8 @@ const items = [
   {
     label: "Сервисы",
     key: "app",
-    icon: <AppstoreOutlined />,
+    icon: <AppstoreOutlined/>,
+
   },
   {
     label: "Профиль",
