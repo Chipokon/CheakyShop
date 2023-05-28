@@ -1,9 +1,11 @@
 const path = require("path");
+require('dotenv').config();
 const Sequelize = require("sequelize");
+const sequelize = new Sequelize('sqlite::memory:');
 
 const db = require(path.resolve(
   path.dirname(require.main.filename),
-  "./src/dataDB.js"
+  "./serverConfig/dbConfig/dataDB.js"
 ));
 const Users = db.sequelize.define(
   "users",
