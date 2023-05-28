@@ -1,9 +1,10 @@
 const router = require("express").Router();
-const { Card } = require("../../../db/models/cardsOld");
+const  {Card}  = require("../../../db/models/card");
 module.exports.getAllCategories = async (req, res) => {
         const data = await Card.findAll({ raw: true });
-        console.log("TEST!");
-        res.json({data:"test"});
+        
+        console.log("TEST!"); 
+        res.json({data: data});
     
     //   .post(async (req, res) => {
     //     const { val } = req.body;

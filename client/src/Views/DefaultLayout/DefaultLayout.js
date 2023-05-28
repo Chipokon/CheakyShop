@@ -14,17 +14,17 @@ import axios from "axios";
 const DefaultLayout = observer(() => {
   const store = useStores().DefaultLayoutStore;
 
-  useEffect( () => {
-    async function fetchData(){
+ const dorntuseEffect = async () => {
     const data = await store.getCategories();
     return data;
 }
-fetchData()
-  }, [])
+  
   
 
   return (
     <>
+    <Button onClick={dorntuseEffect}>GET</Button>
+
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<NavBar />}/>
