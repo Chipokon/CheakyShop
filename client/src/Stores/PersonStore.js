@@ -1,6 +1,7 @@
 import { makeAutoObservable } from 'mobx'
+import axios from 'axios';
 
-class DefaultLayoutStore {
+class PersonStore {
   //здесь писать стейты 
 
   constructor() {
@@ -9,6 +10,12 @@ class DefaultLayoutStore {
   
   //здесь писать функции по обращению со стейтами и с асинхронными операциями 
 
+  regUser = async (values) => {
+    console.log(values);
+  const data = await axios.post('/api/cheakyshop/users/registration', values)
+
+  }
+
 }
 
-export default DefaultLayoutStore
+export default PersonStore
