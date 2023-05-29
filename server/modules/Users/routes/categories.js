@@ -1,24 +1,24 @@
-const router = require("express").Router();
-const  {Card}  = require("../../../db/models/card");
+const Cards = require("../../../db/models/card");
+const Users = require("../../../db/models/user");
 module.exports.getAllCategories = async (req, res) => {
-        const data = await Card.findAll({ raw: true });
-        
-        console.log("TEST!"); 
+      
+        // const user = await Users.findAll({ raw: true });
+        // console.log('USERS', user);
+        // try{
+        //     await Cards.create({
+        //       name: `Card #${Math.floor(Math.random() * 100)}`,
+        //       type: `wow token #${Math.floor(Math.random() * 100)}`,
+        //       cost: Math.floor(Math.random() * 10000),
+        //       owner: 'chipokonamaster@gmail.com',
+          
+        //     })
+        //   } catch(error){
+        //     console.log(error);
+        //   }
+        const data = await Cards.findAll({ raw: true });
+        console.log("CARDS", data.length);
         res.json({data: data});
+        // res.sendStatus(200);
     
-    //   .post(async (req, res) => {
-    //     const { val } = req.body;
-    //     const data = await Card.findAll({ where: { title: val } });
-    //     res.json({ data })
-    //   })
-    
-    //   .delete(async (req, res) => {
-    //     const { el } = req.body;
-    //     await Subscription.destroy({ where: { card_id: el } });
-    //     await Card.destroy({ where: { id: el } });
-    //     res.json({ el });
-    //   });
-    
-    module.exports = router;
 }
   

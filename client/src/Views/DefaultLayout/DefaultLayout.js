@@ -2,33 +2,28 @@ import React, { Suspense, useEffect, useState } from "react";
 import { observer } from "mobx-react-lite";
 import { useStores } from "../../customHooks/useStores";
 import NavBar from "./NavBar/NavBar";
-import Categories from "./Categories/Categories";
-import Chat from "./Chat/Chat";
-import routes from "../../routes";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Profile from "./Profile/Profile";
 import Login from "./NavBar/Login/Login";
 import Registration from "./NavBar/Registration/Rigestration";
-import { Button } from "antd";
-import axios from "axios";
+import Cards from "./Card/Cards";
 const DefaultLayout = observer(() => {
   const store = useStores().DefaultLayoutStore;
-
- const dorntuseEffect = async () => {
-    const data = await store.getCategories();
-    return data;
-}
   
-  
+  useEffect(()=>{
+    // async function fetchData() {
+    // }
+    // fetchData();
+      store.getCategories();
+    
+  },[])
 
   return (
     <>
-    <Button onClick={dorntuseEffect}>GET</Button>
 
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<NavBar />}/>
-          {/* <Route path="/" element={<Categories />} /> */}
           <Route path="cheakyShop/profile" element={<Profile />} />
         </Routes>
         <Routes>
@@ -36,6 +31,8 @@ const DefaultLayout = observer(() => {
           <Route path="cheakyShop/signUp" element={<Registration />} /> 
         </Routes>
       </BrowserRouter>
+      { store.categories.map((el, index) =>  <Cards el = {el} key={index}/>
+      )}
     </>
   );
 });

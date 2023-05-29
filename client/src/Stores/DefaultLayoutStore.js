@@ -1,17 +1,18 @@
 import axios from 'axios';
-import { makeAutoObservable } from 'mobx'
+import { makeAutoObservable, observable } from 'mobx'
 
 class DefaultLayoutStore {
   //здесь писать стейты 
-  categories = [];
+  categories = observable([]);
   constructor() {
     makeAutoObservable(this)
   }
  
   //здесь писать функции по обращению со стейтами и с асинхронными операциями 
   getCategories = async () => {
-    const {data} = await axios.get('/api/cheakyshop/categories')
-    console.log('data : ', data);
+   
+   const {data} = await axios.get('/api/cheakyshop/categories');
+   this.categories = data.data;
   }
 
 }
