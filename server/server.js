@@ -15,6 +15,8 @@ const sequelize = new Sequelize(process.env.DB_NAME, process.env.USER_DATA_DB,  
   host: 'localhost',
   dialect: 'mysql',
 });
+
+
 const PORT = process.env.PORT ?? 4000;
 
 
