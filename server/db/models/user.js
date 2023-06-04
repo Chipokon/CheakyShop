@@ -18,24 +18,29 @@ const Users = db.sequelize.define(
     },
     name: {
       type: Sequelize.STRING,
-      allowNull: false,
     },
     surname: {
       type: Sequelize.STRING,
-      allowNull: false,
     },
     email: {
       type: Sequelize.STRING,
-      allowNull: false,
+      unique: true
     },
     nickname: {
       type: Sequelize.STRING,
-      allowNull: false,
     },
     password: {
       type: Sequelize.STRING,
-      allowNull: false,
     },
+    token: {
+      type: Sequelize.STRING,
+    },
+    refresh_token: {
+      type: Sequelize.STRING,
+    },
+    role_id: {
+      type: Sequelize.INTEGER,
+    }, 
     updated_at: {
       type: Sequelize.DATE,
     },

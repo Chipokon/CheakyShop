@@ -1,19 +1,21 @@
 const Users = require("../../../db/models/user");
-
+const userBLL = require("../bll/user.bll")
 
 module.exports.createNewUser = async (req, res) => {
 try{
-  // await Users.create({
-  //   name: 'dima',
-  //   surname: 'koshmelev',
-  //   nickname: 'Chipokon',
-  //   email: 'chipokonamaster@gmail.com',
-  //   password: '123'
-
-  // })
-  const users = await Users.findAll()
-  console.log(1, users);
+  const data = req.body
+  const [err, answer] = await userBLL.registration(data)
+  console.log(answer);
+  if (err) {
+    res.status(500).send({
+      success: false,
+      message: err,
+      data: {},
+    });
+  }
+  res.send(answer)
 } catch(error){
   console.log(error);
+  res.send(error);
 }
 }
