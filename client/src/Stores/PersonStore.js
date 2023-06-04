@@ -11,8 +11,7 @@ class PersonStore {
   //здесь писать функции по обращению со стейтами и с асинхронными операциями 
 
   regUser = async (values) => {
-    console.log(values);
-  const data = await axios.post('/api/cheakyshop/users/registration', values)
+    const data = await axios.post('/api/cheakyshop/users/registration', values)
 
   }
 
